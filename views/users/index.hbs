@@ -11,9 +11,9 @@
 
   <p>Great on user page</p>
   <a href="users/create">creat new Account</a>
-  <ul>
+  <ul class="people_list">
     {{#each users}}
-      <li><a href="/users/{{this.id}}">{{this.name}}</a></li>
+      <li>{{this.name}}</li>
     {{/each}}
   </ul>
 </body>

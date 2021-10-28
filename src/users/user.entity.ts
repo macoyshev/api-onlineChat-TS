@@ -1,13 +1,34 @@
-import { Column, Model, PrimaryKey, Table } from 'sequelize-typescript';
+import {
+  AllowNull,
+  AutoIncrement,
+  Column,
+  CreatedAt,
+  DataType,
+  Model,
+  PrimaryKey,
+  Table,
+  Unique,
+} from 'sequelize-typescript';
+import { UserInterface } from './interfaces/user.interface';
 
-@Table
-export class User extends Model {
+@Table({
+  tableName: 'persons',
+  timestamps: false,
+})
+export class User extends Model<User, UserInterface> {
   @PrimaryKey
+  @AutoIncrement
+  @Column
   id: number;
 
   @Column
   name: string;
 
+  @Column
+  age: number;
+
+  @Unique
+  @AllowNull
   @Column
   email: string;
 }
