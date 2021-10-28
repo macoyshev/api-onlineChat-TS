@@ -8,7 +8,6 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
   //
   // @Get()
-  // // @Render('users/index')
   // async getAll() {
   //   return this.userService.findAll();
   // }
@@ -17,7 +16,7 @@ export class UserController {
   @Render('users/index')
   async getAll() {
     return {
-      users: this.userService.findAll(),
+      users: await this.userService.findAll(),
     };
   }
 }
