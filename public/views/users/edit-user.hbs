@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Edit page</title>
+</head>
+<body>
+<form>
+  <label for="name">name:</label>
+  <label for="email">email:</label>
+  <label for="age">age:</label>
+  <input type="text" hidden="hidden" value="{{user.id}}" name="id">
+  <input type="text" value="{{user.name}}" name="name" id="name">
+  <input type="text" value="{{user.email}}" name="email" id="email">
+  <input type="number" value="{{user.age}}" name="age" id="age">
+  <input type="submit" value="Edit" id="edit-button">
+</form>
+<script src="/js/edit.js" type="module"></script>
+</body>
+</html>
