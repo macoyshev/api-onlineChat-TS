@@ -5,7 +5,6 @@ import {
   Get,
   Param,
   ParseIntPipe,
-  Patch,
   Post,
   Put,
 } from '@nestjs/common';
@@ -18,38 +17,33 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
-  async getAll() {
-    return {
-      users: await this.userService.findAll(),
-    };
+  getAll() {
+    return this.userService.findAll();
   }
 
   @Post()
-  async create(@Body() createUserDto: CreateUserDto) {
-    await this.userService.create(createUserDto);
+  create(@Body() createUserDto: CreateUserDto) {
+    return  this.userService.create(createUserDto);
   }
 
   @Get(':id')
-  async getOne(@Param('id', ParseIntPipe) id: number) {
-    return {
-      user: await this.userService.find(id),
-    };
+  getOne(@Param('id', ParseIntPipe) id: number) {
+    return this.userService.find(id);
   }
 
   @Delete(':id')
-  async remove(@Param('id', ParseIntPipe) id: number) {
-    await this.userService.delete(id);
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.userService.delete(id);
   }
 
   @Put(':id')
-  async edit( @Body() updateUserDto: UpdateUserDto, @Param('id', ParseIntPipe) id: number,) {
-    return await this.userService.update(updateUserDto, id);
+  edit( @Body() updateUserDto: UpdateUserDto, @Param('id', ParseIntPipe) id: number,) {
+    return this.userService.update(updateUserDto, id);
   }
 
-  @Get('edit/:id')
-  async getEditForm(@Param('id', ParseIntPipe) id: number) {
-    return {
-      user: await this.userService.find(id),
-    };
-  }
+  //is it controller needed ???? #TODO: refactor edit form function
+  // @Get('edit/:id')
+  // getEditForm(@Param('id', ParseIntPipe) id: number) {
+  //   return this.userService.find(id);
+  // }
 }

@@ -1,4 +1,4 @@
-import { User } from './user.entity';
+import { User } from './user.model';
 import { InjectModel } from '@nestjs/sequelize';
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
